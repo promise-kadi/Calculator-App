@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            /* background-color: rgb(73, 225, 236); */
+             display: flex;
+            justify-content: center;
+            align-items: center; 
+            position: relative;
+        }
+        .calculator{
+            background:rgb(27, 180, 185);
+            padding: 20px;
+            border-radius:10px ;
+            box-shadow: 0 0px 5px rgb(224, 104, 144) inset;
+        }
+        .calculator form aside{
+            border: 0;
+            outline: 0;
+            width: 40px;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 15px;
+            /* background: red; */
+            box-shadow: inset 0 0 1px brown;
+            color: rgb(94, 34, 34);
+            font-size: 20px;
+            margin: 4px;
+             /* padding-bottom: 5px; */
+             text-align: center;
+
+        }
+        .calculator .but input:hover{
+            background-color: gold;
+        }
+        h1{
+            position: absolute;
+            margin-bottom: 600px;
+            border-bottom: 2px solid black ;
+            /* color: white; */
+            width: 100%;
+            text-align: center;
+           
+            /* -webkit-text-fill-color: transparent; */
+        }
+
+        #class{
+            background: linear-gradient (15%, red, blue , purple);
+            background-size: 10%;
+            /* -webkit-background-clip: text; */
+             /* -webkit-text-fill-color: tomato; */
+        }
+
+        form .dis{
+            display: flex;
+            justify-content: flex-end;
+             margin: 20px 0; 
+             /* width: 90%; */
+            /* box-shadow: 0 0 1px black; */
+
+        }
+
+        form .dis input{
+            text-align: right;
+            flex: 1;
+            font-size: 30px;
+            box-shadow: 0 0 1px black;
+            width: 60px;
+            height: 65px;
+        }
+
+        .but input{
+            box-shadow: inset 0 0 5px rgb(91, 83, 161); 
+        }
+        
+    .but aside.first{
+            width:80px ;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <h1 id="class">Classic calculator</h1>
+    
+   <div class="calculator">
+       
+       <form >
+            <div class="dis">
+              <input type="text"  placeholder=" 0" class="imp">  
+              <input type="text"  placeholder=" 0" class="imp">  
+            </div>
+            <div class="but">
+                
+                <aside onclick="btnFn(7)">7</aside>
+                <aside onclick="btnFn(8)">8</aside> 
+                <aside onclick="btnFn(9)">9</aside>
+                <aside onclick="btnFn('+')">+</aside>  
+                
+            </div>
+            <div class="but">
+                <aside onclick="btnFn(4)">4</aside>
+                <aside onclick="btnFn(5)">5</aside>
+                <aside onclick="btnFn(6)">6</aside>  
+                <aside onclick="btnFn('-')">-</aside>
+                
+            </div>
+            <div class="but">
+                <aside onclick="btnFn(1)">1</aside> 
+                <aside onclick="btnFn(2)">2</aside>
+                <aside onclick="btnFn(3)">3</aside>  
+                <aside onclick="btnFn('*')">x</aside> 
+                
+            </div>
+            <div class="but">
+                <aside onclick="btnFn('0')">0</aside>  
+                <aside onclick="btnFn('%')">%</aside>  
+                <aside onclick="btnFn('/')">/</aside> 
+                <aside onclick="btnFn('.')">.</aside> 
+                
+            </div>
+            <div class="but">
+                <aside onclick="Delete()" class="first">DEl </aside >
+                    <aside onclick="equalFn()" class="first">C </aside >
+            </div>
+       </form>
+   </div>
+</div>
+   <script>
+         let inp = document.querySelector('.imp')
+         function btnFn(a) {
+            if(inp.value == "Error"){
+          inp.value = "";
+          inp.value += a;
+        } else {
+            inp.value += a;
+        }
+         }
+         function clearFn(){
+          inp.value = "";
+      }  
+      
+      function equalFn(){
+        try {
+            var result = eval(inp.value);
+            inp.value = result;
+        } catch {
+            inp.value = "Error";
+            
+        }
+       
+    }
+      
+   </script>
+
+
+</body>
+</html>
